@@ -7,8 +7,13 @@
   <body>
     <p>Empty HTML doc :) Some JS is running. Save me to your machine.</p>
     <p id="randomUser"></p>
+    <button>Get random user</button>
 
     <script>
+      document.querySelector("button").addEventListener("click", () => {
+        getRandomUser(parseRandomUser);
+      });
+
       getRandomUser = (callback) => {
         // This function uses AJAX to hit the random user API.
         // More info: https://randomuser.me
@@ -31,8 +36,6 @@
         let ans = JSON.parse(response).results[0];
         document.querySelector("p#randomUser").innerHTML = `${ans.name.title} ${ans.name.first} ${ans.name.last}`;
       };
-
-      getRandomUser(parseRandomUser); // Execute the function
     </script>
   </body>
 </html>

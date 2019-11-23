@@ -13,9 +13,14 @@
         // More info: https://randomuser.me
 
         var request = new XMLHttpRequest();
-        request.open("GET", "https://randomuser.me/api/", true);
+        request.open("GET", "https://randomuser.me/apii/", true);
         request.onload = function() {
-          callback(request.response);
+          try {
+            callback(request.response);
+          } catch {
+            console.log("something went wrong");
+          }
+          console.log("but my program did not crash");
         };
         
         request.send();

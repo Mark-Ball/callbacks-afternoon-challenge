@@ -6,6 +6,7 @@
   </head>
   <body>
     <p>Empty HTML doc :) Some JS is running. Save me to your machine.</p>
+    <p id="randomUser"></p>
 
     <script>
       getRandomUser = (callback) => {
@@ -13,7 +14,7 @@
         // More info: https://randomuser.me
 
         var request = new XMLHttpRequest();
-        request.open("GET", "https://randomuser.me/apii/", true);
+        request.open("GET", "https://randomuser.me/api/", true);
         request.onload = function() {
           try {
             callback(request.response);
@@ -28,7 +29,7 @@
 
       function parseRandomUser (response) {
         let ans = JSON.parse(response).results[0];
-        console.log(ans.name.title, ans.name.first, ans.name.last);
+        document.querySelector("p#randomUser").innerHTML = `${ans.name.title} ${ans.name.first} ${ans.name.last}`;
       };
 
       getRandomUser(parseRandomUser); // Execute the function

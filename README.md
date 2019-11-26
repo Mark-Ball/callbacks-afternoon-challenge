@@ -39,3 +39,15 @@ document.querySelector("button").addEventListener("click", () => {
 getRandomUser(parseRandomUser);
 });
 ```
+
+## Implementing axios
+
+Firstly, we must import a script which gives us access to the axios object. This script must be included in addition to the script tag which runs our other javascript.
+```Javascript
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+
+A get request using axios is very similar to a ```fetch()```. axios.get is a method which takes one argument, the URL where the request is being sent.
+```Javascript
+const response = await axios.get("https://randomuser.me/api/");
+```
